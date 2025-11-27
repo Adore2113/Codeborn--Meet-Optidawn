@@ -32,38 +32,11 @@ Made with love, a passion for the future
 Codeborn: Meet Optidawn is a short click-and-play slightly eerie, visual novel style game with memes and techy/sci-fi themes. I built it in five days using Python,VS Code, and pygame for my CS50 final project. I consider this partly a fan project and although it has a playful meme kind of tone to it, it doesn't make my submission any less serious.
 
 Your mission is to bring OptiDawn, a dormant cognitive robot egg, back online.
-To do that, you must answer five diagnostic questions while keeping her stability bar above zero:
+To do that, you must answer five diagnostic questions while keeping her stability bar above zero. So: correct answer = +25% stability, wrong answer = –15% stability, stability drops below 0 %, you lose otherwise you win.
 
-Correct answer → +25% stability
+The game includes a startup sequence, a name input screen (alphanumeric, up to 10 characters), a persistent ENGINEER: (your name) tag on the terminal screens, five question phases, feedback screens where OptiDawn’s lights change red or cyan depending on your answers, color coded game over screens and automatic looping back to the start screen after each ending.
 
-Wrong answer → –15% stability
-
-Stability drops below 0% → you lose
-
-Keep it above zero → OptiDawn fully boots
-
-The game includes:
-
-a startup sequence
-
-a name input screen (alphanumeric, up to 10 characters)
-
-a persistent ENGINEER: [your name] tag on all terminal screens
-
-five question phases
-
-feedback screens where OptiDawn’s lights change red or cyan depending on your answers
-
-a full win story
-
-a full lose story
-
-color-coded game-over screens (cyan = win, red = lose)
-
-automatic looping back to the start screen after each ending
-
-You’ll also find small touches throughout:
-memes, easter eggs (including an 8-bit Elon cameo), changing text on the terminal screens across the top and the bottom and a fake CS50 “you lose” message.
+You’ll also find small touches throughout the game like memes, easter eggs (including an 8-bit Elon cameo), changing text on the terminal screens across the top and the bottom (mostly in the intro terminal screens, and a fake CS50 “you lose” message.
 
 
 #### HOW TO RUN:
