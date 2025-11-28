@@ -1,5 +1,14 @@
 import pygame
 import asyncio
+import os
+import sys
+#--------------------
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 #-------------------- these are the colors I want to use in my game:
 gray_blue_dk = (30, 38, 28)
 gray_blue_lgt = (45, 55, 70)
@@ -60,13 +69,12 @@ async def main():
     #--------------------fonts
 
     global font_helion, font_engineer, font_bootup, font_optidawn, font_terminal, font
-    font_helion = pygame.font.Font("static/ethnocentric.otf", 30)
-    font_engineer = pygame.font.Font("static/cybero.ttf", 26)
-    font_bootup = pygame.font.Font("static/orbitron.ttf", 18)
-    font_optidawn = pygame.font.Font("static/orbitron.ttf",38)
-    font_terminal = pygame.font.Font("static/cyberp.ttf",22)
+    font_helion = pygame.font.Font(resource_path("static/ethnocentric.otf"), 30)
+    font_engineer = pygame.font.Font(resource_path("static/cybero.ttf"), 26)
+    font_bootup = pygame.font.Font(resource_path("static/orbitron.ttf"), 18)
+    font_optidawn = pygame.font.Font(resource_path("static/orbitron.ttf"), 38)
+    font_terminal = pygame.font.Font(resource_path("static/cyberp.ttf"), 22)
     font = pygame.font.Font(None, 36)
-
 
     #--------------------this is the "display surface":
 
@@ -74,93 +82,111 @@ async def main():
     pygame.display.set_caption("Codeborn: Meet OptiDawn")
     clock = pygame.time.Clock()
 
-    #--------------------(I want to use this seperator like I did for my notes to keep it looking clean)
-
-    start_screen = pygame.image.load("static/startscreen.png").convert_alpha()
+    #-------------------- start screen
+    start_screen = pygame.image.load(resource_path("static/startscreen.jpg")).convert_alpha()
     start_screen = pygame.transform.smoothscale(start_screen, (1000,700))
 
-    #-------------------- this is for the terminal bg
-
-    terminal_dim = pygame.image.load("static/CS1.png").convert_alpha()
+    #-------------------- terminal backgrounds
+    terminal_dim = pygame.image.load(resource_path("static/CS1.jpg")).convert_alpha()
     terminal_dim = pygame.transform.smoothscale(terminal_dim, (1000, 700))
-    terminal_bootup = pygame.image.load("static/CSB2.png").convert_alpha()
+
+    terminal_bootup = pygame.image.load(resource_path("static/CSB2.jpg")).convert_alpha()
     terminal_bootup = pygame.transform.smoothscale(terminal_bootup, (1000, 700))
-    terminal_bootup2 = pygame.image.load("static/CS2.png").convert_alpha()
+
+    terminal_bootup2 = pygame.image.load(resource_path("static/CS2.jpg")).convert_alpha()
     terminal_bootup2 = pygame.transform.smoothscale(terminal_bootup2, (1000, 700))
-    terminal_bootup3 = pygame.image.load("static/CS2_1.png").convert_alpha()
+
+    terminal_bootup3 = pygame.image.load(resource_path("static/CS2_1.jpg")).convert_alpha()
     terminal_bootup3 = pygame.transform.smoothscale(terminal_bootup3, (1000, 700))
-    terminal_bootup4 = pygame.image.load("static/CS2_2.png").convert_alpha()
+
+    terminal_bootup4 = pygame.image.load(resource_path("static/CS2_2.jpg")).convert_alpha()
     terminal_bootup4 = pygame.transform.smoothscale(terminal_bootup4, (1000, 700))
-    terminal_bright = pygame.image.load("static/CS2.5.png").convert_alpha()
+
+    terminal_bright = pygame.image.load(resource_path("static/CS2.5.jpg")).convert_alpha()
     terminal_bright = pygame.transform.smoothscale(terminal_bright, (1000, 700))
-    terminal_q = pygame.image.load("static/CS4.png").convert_alpha()
+
+    terminal_q = pygame.image.load(resource_path("static/CS4.jpg")).convert_alpha()
     terminal_q = pygame.transform.smoothscale(terminal_q, (1000, 700))
-    terminal_8bit = pygame.image.load("static/CS4.1.png").convert_alpha()
+
+    terminal_8bit = pygame.image.load(resource_path("static/CS4.1.jpg")).convert_alpha()
     terminal_8bit = pygame.transform.smoothscale(terminal_8bit, (1000, 700))
-    terminal_2 = pygame.image.load("static/CS4.2.png").convert_alpha()
+
+    terminal_2 = pygame.image.load(resource_path("static/CS4.2.jpg")).convert_alpha()
     terminal_2 = pygame.transform.smoothscale(terminal_2, (1000, 700))
-    terminal_3 = pygame.image.load("static/CS4.3.png").convert_alpha()
+
+    terminal_3 = pygame.image.load(resource_path("static/CS4.3.jpg")).convert_alpha()
     terminal_3 = pygame.transform.smoothscale(terminal_3, (1000, 700))
-    terminal_4 = pygame.image.load("static/CS4.4.png").convert_alpha()
+
+    terminal_4 = pygame.image.load(resource_path("static/CS4.4.jpg")).convert_alpha()
     terminal_4 = pygame.transform.smoothscale(terminal_4, (1000, 700))
-    terminal_type = pygame.image.load("static/ESC.png").convert_alpha()
+
+    terminal_type = pygame.image.load(resource_path("static/ESC.jpg")).convert_alpha()
     terminal_type = pygame.transform.smoothscale(terminal_type, (1000, 700))
 
-
-    #-------------------- this is for the egg bg
-
-    egg_bg1 = pygame.image.load("static/BG1.png").convert_alpha()
+    #-------------------- egg backgrounds
+    egg_bg1 = pygame.image.load(resource_path("static/BG1.jpg")).convert_alpha()
     egg_bg1 = pygame.transform.smoothscale(egg_bg1, (1000, 700))
-    egg_bg2 = pygame.image.load("static/BG2.png").convert_alpha()
+
+    egg_bg2 = pygame.image.load(resource_path("static/BG2.jpg")).convert_alpha()
     egg_bg2 = pygame.transform.smoothscale(egg_bg2, (1000, 700))
-    egg_bg3 = pygame.image.load("static/BG3.png").convert_alpha()
+
+    egg_bg3 = pygame.image.load(resource_path("static/BG3.jpg")).convert_alpha()
     egg_bg3 = pygame.transform.smoothscale(egg_bg3, (1000, 700))
-    egg_bg4 = pygame.image.load("static/BG4.png").convert_alpha()
+
+    egg_bg4 = pygame.image.load(resource_path("static/BG4.jpg")).convert_alpha()
     egg_bg4 = pygame.transform.smoothscale(egg_bg4, (1000, 700))
 
-    #--------------------this is for positive/correct feedback
-
-    gf_1 = pygame.image.load("static/GF1.png").convert_alpha()
+    #-------------------- positive / correct feedback
+    gf_1 = pygame.image.load(resource_path("static/GF1.jpg")).convert_alpha()
     gf_1 = pygame.transform.smoothscale(gf_1, (1000, 700))
-    gf_2 = pygame.image.load("static/GF2.png").convert_alpha()
+
+    gf_2 = pygame.image.load(resource_path("static/GF2.jpg")).convert_alpha()
     gf_2 = pygame.transform.smoothscale(gf_2, (1000, 700))
-    gf_3 = pygame.image.load("static/GF3.png").convert_alpha()
+
+    gf_3 = pygame.image.load(resource_path("static/GF3.jpg")).convert_alpha()
     gf_3 = pygame.transform.smoothscale(gf_3, (1000, 700))
-    gf_4 = pygame.image.load("static/GF4.png").convert_alpha()
+
+    gf_4 = pygame.image.load(resource_path("static/GF4.jpg")).convert_alpha()
     gf_4 = pygame.transform.smoothscale(gf_4, (1000, 700))
-    gf_5 = pygame.image.load("static/GF5.png").convert_alpha()
+
+    gf_5 = pygame.image.load(resource_path("static/GF5.jpg")).convert_alpha()
     gf_5 = pygame.transform.smoothscale(gf_5, (1000, 700))
-    gf_screen = pygame.image.load("static/right.png").convert_alpha()
+
+    gf_screen = pygame.image.load(resource_path("static/right.jpg")).convert_alpha()
     gf_screen = pygame.transform.smoothscale(gf_screen, (1000, 700))
 
-    #--------------------this is for negative/wrong feedback
-
-    bf_1 = pygame.image.load("static/RB1.png").convert_alpha()
+    #-------------------- negative / wrong feedback
+    bf_1 = pygame.image.load(resource_path("static/RB1.jpg")).convert_alpha()
     bf_1 = pygame.transform.smoothscale(bf_1, (1000, 700))
-    bf_2 = pygame.image.load("static/RB2.png").convert_alpha()
+
+    bf_2 = pygame.image.load(resource_path("static/RB2.jpg")).convert_alpha()
     bf_2 = pygame.transform.smoothscale(bf_2, (1000, 700))
-    bf_3 = pygame.image.load("static/RB3.png").convert_alpha()
+
+    bf_3 = pygame.image.load(resource_path("static/RB3.jpg")).convert_alpha()
     bf_3 = pygame.transform.smoothscale(bf_3, (1000, 700))
-    bf_4 = pygame.image.load("static/RB4.png").convert_alpha()
+
+    bf_4 = pygame.image.load(resource_path("static/RB4.jpg")).convert_alpha()
     bf_4 = pygame.transform.smoothscale(bf_4, (1000, 700))
-    bf_5 = pygame.image.load("static/RB5.png").convert_alpha()
+
+    bf_5 = pygame.image.load(resource_path("static/RB5.jpg")).convert_alpha()
     bf_5 = pygame.transform.smoothscale(bf_5, (1000, 700))
-    bf_screen1 = pygame.image.load("static/wrong.png").convert_alpha()
+
+    bf_screen1 = pygame.image.load(resource_path("static/wrong.jpg")).convert_alpha()
     bf_screen1 = pygame.transform.smoothscale(bf_screen1, (1000, 700))
-    bf_screen2 = pygame.image.load("static/Q1B.png").convert_alpha()
+
+    bf_screen2 = pygame.image.load(resource_path("static/Q1B.jpg")).convert_alpha()
     bf_screen2 = pygame.transform.smoothscale(bf_screen2, (1000, 700))
-    bf_screen3 = pygame.image.load("static/Q3B.png").convert_alpha()
+
+    bf_screen3 = pygame.image.load(resource_path("static/Q3B.jpg")).convert_alpha()
     bf_screen3 = pygame.transform.smoothscale(bf_screen3, (1000, 700))
 
-    #--------------------you win
-
-    you_win = pygame.image.load("static/Youwin.png").convert_alpha()
+    #-------------------- win / lose screens
+    you_win = pygame.image.load(resource_path("static/Youwin.jpg")).convert_alpha()
     you_win = pygame.transform.smoothscale(you_win, (1000, 700))
 
-    #--------------------you lose
-
-    you_lose = pygame.image.load("static/Youlose.png").convert_alpha()
+    you_lose = pygame.image.load(resource_path("static/Youlose.jpg")).convert_alpha()
     you_lose = pygame.transform.smoothscale(you_lose, (1000, 700))
+
 
     #-------------------- boot up messages
 
